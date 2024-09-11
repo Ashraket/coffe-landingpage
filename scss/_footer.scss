@@ -1,0 +1,35 @@
+.footer{
+    @include flex (null,center);
+    background-color: white;
+    &__content{
+        &--text{
+            color: $primary-color;
+            font-size: 30px;
+        }
+
+        &--icons{
+            margin-top: 5rem;
+            @include flex(null,center,center);
+            font-size: large;
+
+            & a{
+                display: inline-block;
+                text-decoration: none;
+                color: $primary-color;
+                background-color: white;
+                width: 50px;
+                height: 50px;
+                border-radius: 3px;
+                @include flex(null);
+                margin: 0 0.5rem;
+                @include transition;
+
+                &:hover{
+                    color: $secondary-color;
+                    box-shadow: 0 0 6px 5px rgba(0, 0, 0, 0.2);
+                }
+            }
+        }
+        
+    }
+}

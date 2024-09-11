@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
+@import "variables.scss";
+@import "mixins.scss";
+@import "navbar.scss";
+@import "footer.scss";
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 10px;
+}
+body{
+    min-height: 100vh;
+    background-color: $primary-color;
+    color: white;
+    font-family: $siliguri-font;
+}
+.wrapper{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 3rem; /* 1rem = 10px as changed in html{} */
+    font-size: 1.5rem;
+}
+
+
+
+
+// banner section
+.banner{
+    @include flex(column, null, center);
+    min-height: 100vh;
+
+    &__content{
+        min-height: 50vh;
+        @include flex(column);
+        text-align: center;
+
+        &--heading{
+            font-size: 5rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            line-height: 1.3;
+
+            span{
+                color: $secondary-color;
+                font-weight: 300;
+            }
+        }
+
+        &--para{
+            margin: 2rem auto;
+            max-width: 600px;
+            font-size: 1.8rem;
+            line-height: 1.6;
+        }
+
+        &--btns{
+            margin-top: 1rem;
+
+            & .btn{
+                border: none;
+                background-color: $secondary-color;
+                border: 3px solid $secondary-color;
+                padding: 1.2rem 2.2rem;
+                text-transform: capitalize;
+                font-family: $siliguri-font;
+                font-size: 1.5rem;
+                cursor: pointer;
+                @include transition;
+
+                &.btn-white{
+                    margin-right: 1rem;
+                    color: $primary-color;
+
+                    &:hover{
+                        background-color: $primary-color;
+                        color: $secondary-color;
+                    }
+                }
+
+                &.btn-transparent{
+                    background-color: transparent;
+                    color: $secondary-color;
+
+                    &:hover{
+                        background-color: $secondary-color;
+                        color: $primary-color;
+                    }
+                }
+            }
+        }
+
+        
+    }
+
+
+   
+
+    @include desktop{
+        @include flex(row, space-between);
+        min-height: calc(100vh - 101px);
+
+        &__content{
+            text-align: left;
+            margin-right: 3rem;
+            align-items: flex-start;
+        }
+    }
+}
+.content-header{
+    @include flex(null,center,center);
+    padding: 20px;
+    font-size: 80px;
+}
+.content{
+    @include flex(null,center,center);
+    width: 100%;
+    .row{
+        width: 1140px;
+        display: grid;
+       grid-template-columns: repeat(3,1fr);
+        grid-gap:20px;
+        .card{
+            @include flex(column,center,center);
+            padding: 20px;
+            margin-bottom: 20px;
+            width:100%;
+            height: 450px;
+            border-radius: 15px;
+            background-image: $back;
+            padding: 30px;
+            &:hover{
+                background-image: $reverse-background;
+                cursor: pointer;
+                @include transition;
+                transform: scale(1.05);  /* Slight scale up */
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  /* Darker shadow */
+            }
+            
+            .img-product{
+                width: 100%;
+                height: 100%;
+            }
+            .product-title{
+                font-size: large;
+                color: $primary-color;
+
+            }
+            .product-price{
+                font-style: italic;
+            }
+            .btn-transparent{
+                border: none;
+                background-color: $primary-color;
+                border: 3px solid $primary-color;
+                padding: 1.2rem 2.2rem;
+                margin-top: 5px;
+                text-transform: capitalize;
+                font-family: $siliguri-font;
+                font-size: 1.5rem;
+                cursor: pointer;
+                @include transition;
+                color: white;
+
+                &:hover{
+                    background-color: $secondary-color;
+                    color: $primary-color;
+                }
+            }
+        }
+    }
+
+}
